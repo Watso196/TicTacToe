@@ -9,7 +9,7 @@
   <!-- Navigation -->
   <nav>
   <ul class="list-nav">
-      <li><a href="Rosspagehere">Home</a></li>
+      <li><a href="home.ctp">Home</a></li>
       <div class="button">
       <button type="button">Click here for the Rules</button>
     </div>
