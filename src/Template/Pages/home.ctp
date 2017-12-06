@@ -11,7 +11,7 @@
   <header>
 	  <h1>
           <a>
-              Welcome to our tic-tac-toe game!
+              Welcome to our Tic-Tac-Toe game!
           </a>
       </h1>
   </header>
