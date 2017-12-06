@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
     <title>Tic-Tac-Toe Game</title>
-  <link href="tictactoe_homepage_style.css" type="text/css" rel="stylesheet">
+ 	<?php
+	echo $this->Html->css('tictactoe_homepage_style');
+	?>
 </head>
 <body>
-
+echo $this->Html->charset()
   <header>
 	  <h1>
           <a>
