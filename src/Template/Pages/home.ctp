@@ -8,7 +8,6 @@
 	?>
 </head>
 <body>
-echo $this->Html->charset()
   <header>
 	  <h1>
           <a>
