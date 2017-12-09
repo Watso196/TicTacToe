@@ -40,18 +40,23 @@
   </div>
 
   <div class="user">
-  <p> <?= $game->get('player1'); ?>
-  </p>
-  <p> <?= $game->get('player2'); ?>
-  </p>
-</div>
+  	<p>
+	  Get username from URL parameter
+  	</p>
+  	<p>
+	  Get username from URL parameter
+  	</p>
+  </div>
     <div class="whoseturn">
   <p> print out whose turn it is via JS </p>
+
 </div>
 
 <footer>
   <p>Copyright &copy; AL 491 Group 4: Stephanie Walker, Ross Klimoski, and Kalib Watson.</p>
 </footer>
+
+<?= $this->Html->script('game'); ?>
 
 </body>
 
