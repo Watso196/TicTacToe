@@ -1,17 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <link type="text/css" rel="stylesheet" href="gamepage.css"/>
+  <?= $this->Html->css('gamepage'); ?>
   <title> Tic Tac Toe Game Page </title>
 </head>
 <body>
   <!-- Navigation -->
   <nav>
   <ul class="list-nav">
-      <li><a href="home.ctp">Home</a></li>
-      <div class="button">
       <button type="button">Click here for the Rules</button>
-    </div>
 
   </ul>
   </nav>
@@ -34,9 +31,9 @@
   </ul>
 
   <div id="game-messages">
-        <span class="player-x-win">Player One Wins</span>
-        <span class="player-o-win">Player Two Wins</span>
-  	<span class="draw">Draw Game</span>
+        <span class="player-x-win"><p>Player One Wins!</p></span>
+        <span class="player-o-win"><p>Player Two Wins!</p></span>
+  	<span class="draw"><p>Draw Game</p></span>
   </div>
 
   <div class="user">

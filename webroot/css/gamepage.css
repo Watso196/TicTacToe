@@ -1,28 +1,29 @@
-li{
+button {
+  float: right;
   border: 1px solid black;
-  width:60px;
-  padding:5px;
-  font-size:24px;
-  list-style:none;
-}
-.button{
-  float:right;
-  border: none;
   list-style: none;
   margin: 4px 2px;
   font-size: 24px;
-  background-color: black;
+  background-color: lightblue;
+  display: block;
+  position: relative; 
 }
-.button:hover {
-background-color: green;
+button:hover {
+background-color: purple;
 }
+
 h2{
-  margin-right: 500px;
-  margin-left: 500px;
+  text-align: center;
+  position: relative;
+  left: 120px;
 }
+p {
+  text-align: center;
+  font-size: 16px;
+}
+
 footer{
   margin-top:450px;
-
 }
 
 #game {
@@ -72,6 +73,40 @@ footer{
     border: 0;
 }
 
-#game-messages {
+#nfo {
+    text-align:center;
+    margin-top: 10px;
+}
+
+#whos-turn > span,
+#game-messages > span {
     display: none;
+}
+
+#whos-turn.x span.x,
+#whos-turn.o span.o, 
+#game-messages.player-x-win > span.player-x-win, 
+#game-messages.player-o-win > span.player-o-win,
+#game-messages.draw > span.draw {
+    display: block;
+    margin-top: 10px;
+}
+
+#reset-game {
+    text-align: center;
+        border: none;
+        padding: 0.6em 1.2em;
+        background: #ed4e6e;
+        color: #fff;
+        font-size: 1em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3px 2px;
+        border-radius: 2px;
+}
+
+#reset-game:hover {
+        background: #2c3e52;
 }
