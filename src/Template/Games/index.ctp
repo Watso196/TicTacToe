@@ -1,9 +1,8 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
   <link type="text/css" rel="stylesheet" href="gamepage.css"/>
-<title> Tic Tac Toe Game Page </title>
+  <title> Tic Tac Toe Game Page </title>
 </head>
 <body>
   <!-- Navigation -->
@@ -41,11 +40,13 @@
   </div>
 
   <div class="user">
-  <p> form/user X here </p>
-  <p> form/ user O here </p>
+  <p> <?= $game->get('player1'); ?>
+  </p>
+  <p> <?= $game->get('player2'); ?>
+  </p>
 </div>
     <div class="whoseturn">
-  <p> form/ whose turn it is </p>
+  <p> print out whose turn it is via JS </p>
 </div>
 
 <footer>
