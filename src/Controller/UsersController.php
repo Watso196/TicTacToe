@@ -44,21 +44,6 @@ class UsersController extends AppController
 	}
 
 
-	public function add() {
-                $user = $this->Users->newEntity();
-
-                if ($this->request->is('post')) {
-                        $user = $this->Users->patchEntity($user, $this->request->getData());
-
-                        if ($this->Users->save($user)) {
-                                return $this->redirect(['controller' => 'Games', 'action' => 'add', 'param1', 'param2']);
-                        }
-                $this->set('user', $user);
-
-                }
-
-        }
-
 	public function view() {
 
 		//$users = TableRegistry::get('Users');
