@@ -78,7 +78,7 @@ footer{
     margin-top: 10px;
 }
 
-#whos-turn > span,
+#turn-messages > span,
 #game-messages > span {
     display: none;
 }

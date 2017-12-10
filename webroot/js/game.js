@@ -4,6 +4,7 @@
     var boxes = document.querySelectorAll('li');
     var resetGame = document.getElementById('reset-game');
     var turnDisplay = document.getElementById('whos-turn');
+    var turnMessages = document.getElementById('turn-messages');
     var gameMessages = document.getElementById('game-messages');
     var playerOneScoreCard = document.getElementById('player-one-score');
     var playerTwoScoreCard = document.getElementById('player-two-score');
@@ -41,6 +42,10 @@
     //Keeps track of player's turn
     var computeContext = function() {
         return (turns % 2 == 0) ? context.player1 : context.player2;
+    }
+
+    var displayTurn = function() {
+	gameMessages.className = 'player-' + computeContext() + '-turn';
     }
     
     // Bind the dom element to the click callback
