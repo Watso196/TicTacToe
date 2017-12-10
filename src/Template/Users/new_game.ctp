@@ -20,16 +20,10 @@
     The game involves two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game. Enter a username in each field below then click Start Game. Player X will go first.
   </p>
     
-  <?php echo $this->Form->create(null, [
-    'url' => '/',
-    'type' => 'post'
-  ]);
-  ?>
-      <label for="user_1">Player X</label><br />
-      <input type="text" id="user_1" name="user_1"><br /><br />
-      <label for="user_2">Player O</label><br />
-      <input type="text" id="user_2" name="user_2"><br /><br />
-      <button type="submit">Start Game</button>
+  <?php echo $this->Form->create(null); ?>
+	<?= $this->Form->input('username_one', ['label' => 'Player X Username']); ?>
+	<?= $this->Form->input('username_two', ['label' => 'Player Y Username']); ?>
+	<?= $this->Form->postButton('Submit Player X', ['controller' => 'users', 'action' => 'add']); ?>
   </form>
     
     

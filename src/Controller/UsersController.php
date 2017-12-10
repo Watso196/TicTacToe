@@ -9,27 +9,55 @@ class UsersController extends AppController
 {
 	public function newGame() {
 
-		$users = TableRegistry::get('Users');
-
-		$user = $this->Users->newEntity();
-
-		$createNewUser = function ($entity) use ($username) {
-                        $entity->username = $this->request-getData('username');
-                        $entity->games_won = 0;
-                        $entity->games_played = 0;
-                  	return $entity;
-		};
+		$usersTable = TableRegistry::get('Users');
 
 		if ($this->request->is('post')) {
-			$username = $this->request->getData('username_one');
-			$user_1 = findOrCreate(['username' => $username], $createNewUser );
+			$username1 = $this->request->getData('username_one');
+			if (!$usersTable->findByUsername($username1)) {
 
-			$username = $this->request->getData('username_one');
-			$user_2 = findOrCreate(['username' => $username], $createNewUser );
-			return array( $user_1, $user_2 );
+				$user1 = $usersTable->newEntity();
+				$user1->username = $username1;
+				$user1->games_won = 0;
+				$user1->games_player = 0;
+				if ($this->Users->save($user1)) {
+                        		$this->Flash->success(__('Your username item has been saved.'));
+                        	} else {
+					$this->Flash->error(__('Unable to add your username.'));
+				}
+			}
+
+			$username2 = $this->request->getData('username_two');
+			if (!$usersTable->findByUsername($username1)) {
+				$user2 = $usersTable->newEntity();
+				$user2->username = $username2;
+                        	$user2->games_won = 0;
+                        	$user2->games_player = 0;
+                        	if ($this->Users->save($user2)) {
+                                	$this->Flash->success(__('Your username item has been saved.'));
+                        	} else {
+					$this->Flash->error(__('Unable to add your username.'));
+				}
+			}
+
+			return $this->redirect(['controller' => 'Games', 'action' => 'add', $username1, $username2 ]);
 		}
-
 	}
+
+
+	public function add() {
+                $user = $this->Users->newEntity();
+
+                if ($this->request->is('post')) {
+                        $user = $this->Users->patchEntity($user, $this->request->getData());
+
+                        if ($this->Users->save($user)) {
+                                return $this->redirect(['controller' => 'Games', 'action' => 'add', 'param1', 'param2']);
+                        }
+                $this->set('user', $user);
+
+                }
+
+        }
 
 	public function view() {
 
