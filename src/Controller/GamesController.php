@@ -3,7 +3,7 @@
 
 namespace App\Controller;
 
-use cake\I18n\Time;
+use Cake\I18n\Time;
 
 use Cake\ORM\TableRegistry;
 
@@ -13,13 +13,19 @@ class GamesController extends AppController
 
 	$gamesTable = TableRegistry::get('Games');
 
-	$winner = $this->request->getData('form');
+	$player = $this->request->getData('form');
 
 	$game = $gamesTable->newEntity();
 
 	$url = $this->request->here;
 
         $params = explode("/", $url);
+
+	if ($player == 'x') {
+		$winner = $params[5];
+	} else {
+		$winner = $params[6];
+	}
 
         	if ($this->request->is('post')) {
                         $game->winner = $winner;
