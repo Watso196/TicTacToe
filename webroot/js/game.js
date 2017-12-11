@@ -8,11 +8,12 @@
     var gameMessages = document.getElementById('game-messages');
     var playerOneScoreCard = document.getElementById('player-one-score');
     var playerTwoScoreCard = document.getElementById('player-two-score');
+    var formField = document.getElementById('form');
+    var Buttons = document.querySelectorAll('button');
     
     // Vars
     var context = { 'player1' : 'x', 'player2' : 'o' };
     var board = [];
-    
     var playerOneScore = 0;
     var playerTwoScore = 0;
     
@@ -111,20 +112,26 @@
         
         // show game won message
         gameMessages.className = 'player-' + computeContext() + '-win';
-        
-        // update the player score
+ 	for (i = 0; i < Buttons.length; i++) {
+		Buttons[i].style.display = 'block';
+	}
+        // send winner information to form field to pass to PHP
         switch(computeContext()) {
             case 'x':
-                playerOneScoreCard.innerHTML = ++playerOneScore;
+		console.log("player x wins");
+                formField.value = 'x';
                 break;
             case 'o':
-                playerTwoScoreCard.innerHTML = ++playerTwoScore;
-        }
+		console.log("player o wins");
+                formField.value = 'o';
+		break;
+    	}
     }
     // Tells user when game is a draw.
     var gameDraw = function() {
         gameMessages.className = 'draw';
         clearEvents();
+	formField.value = 'neither';
     }
     
     // Stops user from clicking empty cells after game is over
@@ -149,6 +156,6 @@
         turnDisplay.className = currentContext;
         gameMessages.className = '';
     }
-    
+  
     game && init();
 })();

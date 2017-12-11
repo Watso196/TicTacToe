@@ -1,21 +1,21 @@
 button {
-  float: right;
+  margin: 0 auto;
   border: 1px solid black;
-  list-style: none;
-  margin: 4px 2px;
   font-size: 24px;
-  background-color: lightblue;
-  display: block;
-  position: relative; 
+  background-color: white;
+  display: none;
+  position: relative;   
+}
+#form, label {
+  position: relative;
+  left: -100000px;
 }
 button:hover {
 background-color: purple;
 }
 
-h2{
+h1 {
   text-align: center;
-  position: relative;
-  left: 120px;
 }
 p {
   text-align: center;
@@ -23,7 +23,9 @@ p {
 }
 
 footer{
-  margin-top:450px;
+  position: relative;
+  display: block;
+  bottom: 0;
 }
 
 #game {
