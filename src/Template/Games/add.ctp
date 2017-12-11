@@ -2,6 +2,11 @@
 <html>
 <head>
   <?= $this->Html->css('gamepage'); ?>
+  <?php
+     $url = $this->request->here;
+
+     $params = explode("/", $url);
+  ?>
   <title> Tic Tac Toe Game Page </title>
 </head>
 <body>
@@ -38,16 +43,12 @@
 
   <div class="user">
   	<p>
-	  Get username from URL parameter
+	    Player X: <?= $params[5]; ?>
   	</p>
   	<p>
-	  Get username from URL parameter
+	    Player Y: <?= $params[6]; ?>
   	</p>
   </div>
-    <div class="whoseturn">
-  <p> print out whose turn it is via JS </p>
-
-</div>
 
 <footer>
   <p>Copyright &copy; AL 491 Group 4: Stephanie Walker, Ross Klimoski, and Kalib Watson.</p>
