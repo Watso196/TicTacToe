@@ -130,6 +130,9 @@
     // Tells user when game is a draw.
     var gameDraw = function() {
         gameMessages.className = 'draw';
+	for (i = 0; i < Buttons.length; i++) {
+                Buttons[i].style.display = 'block';
+        }
         clearEvents();
 	formField.value = 'neither';
     }
