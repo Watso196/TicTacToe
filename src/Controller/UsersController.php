@@ -23,7 +23,7 @@ class UsersController extends AppController
 
 			$user1_query = $connection
                 	->newQuery()
-                	->select('username')
+                	->select('*')
                 	->from('users')
                 	->where(['username >' => $username1])
                 	->execute()
@@ -31,13 +31,13 @@ class UsersController extends AppController
 
 			$user2_query = $connection
                         ->newQuery()
-                        ->select('username')
+                        ->select('*')
                         ->from('users')
                         ->where(['username >' => $username2])
                         ->execute()
                         ->fetch('assoc');
 
-			if (!$user1_query) {
+			if ($user1_query['username'] == '') {
 				$user1 = $usersTable->newEntity();
 				$user1->username = $username1;
 				$user1->games_won = 0;
@@ -49,7 +49,7 @@ class UsersController extends AppController
 				}
 			}
 
-			if (!$user2_query) {
+			if ($user2_query['username'] == '') {
 				$user2 = $usersTable->newEntity();
 				$user2->username = $username2;
                 	       	$user2->games_won = 0;
@@ -67,14 +67,15 @@ class UsersController extends AppController
 
 	public function view() {
 
-		//$users = TableRegistry::get('Users');
-		$query = $users->find('all');
-		foreach ($query as $row) {
-		}
-		$results = $query->all();
-		$data = $results->toArray();
+		$connection = ConnectionManager::get('default');
 
-		$users = $data;
+		$users = $connection
+                        ->newQuery()
+                        ->select('*')
+                        ->from('users')
+			->order(['games_won' => 'DESC'])
+                        ->execute()
+                        ->fetchAll('assoc');
 
 	}
 }
