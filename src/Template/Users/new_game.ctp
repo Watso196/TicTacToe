@@ -22,7 +22,7 @@
     
   <?php echo $this->Form->create(null); ?>
 	<?= $this->Form->input('username_one', ['label' => 'Player X Username']); ?>
-	<?= $this->Form->input('username_two', ['label' => 'Player Y Username']); ?>
+	<?= $this->Form->input('username_two', ['label' => 'Player O Username']); ?>
 	<?= $this->Form->postButton('Start Game', ['controller' => 'users', 'action' => 'add']); ?>
   </form>
     
