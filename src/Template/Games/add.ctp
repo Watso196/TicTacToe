@@ -46,7 +46,6 @@
   <?= $this->Form->create($game); ?>
 	<?= $this->Form->input('form'); ?>
 	<?= $this->Form->postButton('Reset', ['controller' => 'games', 'action' => 'add', $params[5], $params[6]]); ?>
-	<?= $this->Form->postButton('Quit', ['controller' => 'games', 'action' => 'add']); ?>
 
   </form>
 
