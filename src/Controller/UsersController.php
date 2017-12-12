@@ -16,49 +16,43 @@ class UsersController extends AppController
 		$usersTable = TableRegistry::get('Users');
 
 		$connection = ConnectionManager::get('default');
+		$users = $connection
+                        ->newQuery()
+                        ->select('*')
+                        ->from('users')
+                        ->execute()
+                        ->fetchAll('assoc');
 
 		if ($this->request->is('post')) {
 			$username1 = $this->request->getData('username_one');
 			$username2 = $this->request->getData('username_two');
 
-			$user1_query = $connection
-                	->newQuery()
-                	->select('*')
-                	->from('users')
-                	->where(['username >' => $username1])
-                	->execute()
-                	->fetch('assoc');
+			$user1_validate = False;
+			$user2_validate = False;
 
-			$user2_query = $connection
-                        ->newQuery()
-                        ->select('*')
-                        ->from('users')
-                        ->where(['username >' => $username2])
-                        ->execute()
-                        ->fetch('assoc');
-
-			if ($user1_query['username'] == '') {
-				$user1 = $usersTable->newEntity();
-				$user1->username = $username1;
-				$user1->games_won = 0;
-				$user1->games_player = 0;
-				if ($this->Users->save($user1)) {
-                       			$this->Flash->success(__('Your username item has been saved.'));
-                       		} else {
-					$this->Flash->error(__('Unable to add your username.'));
+			foreach ($users as $user) {
+				if ($user['username'] == $username1) {
+					$user1_validate = True;
+				}
+				if ($user['username'] == $username2) {
+                                        $user2_validate = True;
 				}
 			}
 
-			if ($user2_query['username'] == '') {
+			if ($user1_validate == False) {
+				$user1 = $usersTable->newEntity();
+				$user1->username = $username1;
+				$user1->games_won = 0;
+				$user1->games_played = 0;
+				$this->Users->save($user1);
+			}
+
+			if ($user2_validate == False) {
 				$user2 = $usersTable->newEntity();
 				$user2->username = $username2;
                 	       	$user2->games_won = 0;
-              	     		$user2->games_player = 0;
-                       		if ($this->Users->save($user2)) {
-                       			$this->Flash->success(__('Your username item has been saved.'));
-          	    		} else {
-					$this->Flash->error(__('Unable to add your username.'));
-				}
+              	     		$user2->games_played = 0;
+				$this->Users->save($user2);
 			}
 			return $this->redirect(['controller' => 'Games', 'action' => 'add', $username1, $username2 ]);
 		}
