@@ -30,3 +30,7 @@ Future Improvements
 	- fixing the broken code
 	- displaying a user’s scores on the game page
 	- sorting the scores on the score page buy highest-lowest score
+
+
+To work on our application, clone the repository URL, run composer install, then create user schema and use migrations. Once you are part of the project, browse through the
+http://fws.cal.msu.edu:8080/~<netID>/ URL and the GitLab repository to familiarize yourself with the files.
