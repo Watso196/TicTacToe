@@ -3,9 +3,30 @@
 <head>
   <?= $this->Html->css('gamepage'); ?>
   <?php
+     use Cake\Datasource\ConnectionManager;
+
+     use Cake\ORM\TableRegistry;
+
      $url = $this->request->here;
 
      $params = explode("/", $url);
+
+     $connection = ConnectionManager::get('default');
+     $users = $connection
+        ->newQuery()
+        ->select('*')
+        ->from('users')
+        ->execute()
+        ->fetchAll('assoc');
+     
+     foreach ($users as $user) {
+        if ($user['username'] == $params[5]) {
+                $user_1_won = $user['games_won'];
+        }
+	elseif ($user['username'] == $params[6]) {
+                $user_2_won = $user['games_won'];
+        }
+     }          
   ?>
   <title> Tic Tac Toe Game Page </title>
 </head>
@@ -36,11 +57,13 @@
 
   <div class="user">
   	<p>
-	    Player X: <?= $params[5]; ?>
-  	</p>
+	    Player X: <?= $params[5]; ?> | 
+	    Games Won: <?= $user_1_won; ?> 
+	</p>
   	<p>
-	    Player Y: <?= $params[6]; ?>
-  	</p>
+	    Player Y: <?= $params[6]; ?> | 
+            Games Won: <?= $user_2_won; ?>
+	</p>
   </div>
 
   <?= $this->Form->create($game); ?>
