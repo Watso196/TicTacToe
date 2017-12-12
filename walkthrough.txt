@@ -1,0 +1,48 @@
+Thanks for checking out our tic-tac-toe game! More information about this project is below.
+
+Authors: Kalib Watson, Ross Klimoski, Stephanie Walker
+Course: AL 491, Michigan State University
+Professor: Brian Adams
+
+                                                                          Walkthrough
+Creating the HTML & CSS
+        - Ross made home page
+        - Stephanie made game page
+        - Kalib added final touches, including the CSS of the actual game board
+        - We had to figure out how to get the css files into the correct folder on gitlab
+        - We made sketches of what wanted pages to look like before actually coding the pages (show image below)
+        - Found it was helpful to type our code in a separate text editor (I used Atom) and then copying and pasting it into the correct files within$
+
+
+Core code(Kalib)
+        - Set up gitlab
+        - Coded the php
+
+
+Challenges faced
+        - adding data to database
+        - retrieving data from database
+        - checking items in the table
+        - lack of resources, troubleshooting issues
+        - MySQL understanding
+
+Future Improvements
+        - fixing the broken code
+        - displaying a user’s scores on the game page
+        - sorting the scores on the score page buy highest-lowest score
+
+In order to start working on our project:
+	- SSH into your fws space 
+	- Copy the SSH URL from the gitlab project page
+	- Cd into your public_html directory and run git clone <the URL you copied> 
+	- The project will take a minute to clone
+	- Cd into the tictactoe directory
+	- Run composer to install dependencies with composer install command
+	- Answer yes to any composer questions
+	- Check your fws http space and make sure the page comes up
+	- Run the create_user_schema <your database name> command
+	- Edit the config/app.php with your database credentials
+	- Run bin/cake migrations migrate to get your database tables
+	_ Start developing!
+
+
