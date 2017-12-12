@@ -6,6 +6,7 @@ Professor: Brian Adams
 
                                                                           Walkthrough
 Creating the HTML & CSS
+<<<<<<< HEAD
         - Ross made home page
         - Stephanie made game page
         - Kalib added final touches, including the CSS of the actual game board
@@ -46,3 +47,33 @@ In order to start working on our project:
 	_ Start developing!
 
 
+=======
+	- Ross made home page
+	- Stephanie made game page
+	- Kalib added final touches, including the CSS of the actual game board
+	- We had to figure out how to get the css files into the correct folder on gitlab
+	- We made sketches of what wanted pages to look like before actually coding the pages (show image below) 
+	- Found it was helpful to type our code in a separate text editor (I used Atom) and then copying and pasting it into the correct files within terminal
+
+
+Core code(Kalib)
+	- Set up gitlab
+	- Coded the php
+
+ 
+Challenges faced
+	- adding data to database
+	- retrieving data from database
+	- checking items in the table
+	- lack of resources, troubleshooting issues
+	- MySQL understanding
+
+Future Improvements
+	- fixing the broken code
+	- displaying a user’s scores on the game page
+	- sorting the scores on the score page buy highest-lowest score
+
+
+To work on our application, clone the repository URL, run composer install, then create user schema and use migrations. Once you are part of the project, browse through the
+http://fws.cal.msu.edu:8080/~<netID>/ URL and the GitLab repository to familiarize yourself with the files.
+>>>>>>> 6afed8d8d7a51ae982418bcf50abdd20fbf4cde7
